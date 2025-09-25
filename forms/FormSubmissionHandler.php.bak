@@ -147,20 +147,18 @@ class FormSubmissionHandler {
     }
 
     /**
-     * Validate and sanitize form data
-     * @param array $postData
-     * @param array $files
+     * Store uploaded file in permanent storage
+     * @param array $field
+     * @param array $file
+     * @param string $submissionId
      * @return array
      */
-    private function validateFormData($postData, $files) {
-        $sanitizedData = [];
-        $errors = [];
-        $validator = InputValidator::getInstance();
-        
-        // Rate limiting check
-        $clientIP = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-        if (!$this->checkRateLimit($clientIP)) {
-            SecurityUtils::logSecurityEvent('rate_limit_exceeded', [
+    private function storeFile($field, $file, $submissionId) {
+        try {
+            $fileInfo = [
+                'original_name' => $file['name'],
+                'mime_type' => $file['type'],
+                'size' => $file['size']
                 'type' => 'form_submission',
                 'form_id' => $this->form['id'],
                 'ip' => $clientIP
@@ -232,17 +230,6 @@ class FormSubmissionHandler {
             'success' => true,
             'data' => $sanitizedData
         ];
-    }
-    
-    /**
-     * Check rate limiting for form submissions
-     * @param string $clientIP
-     * @return bool
-     */
-    private function checkRateLimit($clientIP) {
-        // Simple rate limiting - allow 10 submissions per hour per IP
-        // In production, you might want to use Redis or a more sophisticated approach
-        return true; // Disabled for now
     }
 
     /**
@@ -618,27 +605,6 @@ class FormSubmissionHandler {
                 error_log("Failed moving temp file for {$fieldId}: " . ($moveResult['error'] ?? 'unknown'));
                 if ($field['required']) {
                     $errors[$fieldId] = 'Failed to attach pre-uploaded file for ' . $field['label'] . '.';
-                }
-            }
-        }
-        
-        // Check if field is required but no file was provided
-        if ($field['required'] && !isset($processedFiles[$fieldId])) {
-            $errors[$fieldId] = $field['label'] . ' is required.';
-        }
-    }
-    
-    return [
-        'success' => empty($errors),
-        'files' => $processedFiles,
-        'errors' => $errors
-    ];
-}
-
-    /**
-     * Basic file validation
-     * @param array $field
-     * @param array $file
      * @return array
      */
     private function validateFileBasic($field, $file) {
