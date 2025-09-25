@@ -130,15 +130,35 @@ class FormSubmissionHandler {
      * @param array $files
      * @return array
      */
-    private function validateFormData($postData, $files) {
+    private function validateFileBasic($field, $file) {
         $validator = InputValidator::getInstance();
-        $sanitizedData = [];
-        $errors = [];
-        
-        // Rate limiting check
-        $clientIP = SecurityUtils::getClientIP();
-        if (!SecurityUtils::checkRateLimit('form_submission_' . $clientIP, 10, 300)) {
-            SecurityUtils::logSecurityEvent('rate_limit_exceeded', [
+        $validationOptions = [];
+
+        if (isset($field['maxLength'])) $validationOptions['maxLength'] = $field['maxLength'];
+        if (isset($field['minLength'])) $validationOptions['minLength'] = $field['minLength'];
+        if (isset($field['min'])) $validationOptions['min'] = $field['min'];
+        if (isset($field['max'])) $validationOptions['max'] = $field['max'];
+        if (isset($field['options'])) $validationOptions['allowedValues'] = $field['options'];
+        if (isset($field['pattern'])) $validationOptions['pattern'] = $field['pattern'];
+
+        $validationResult = $validator->validateField('file', $file, $validationOptions);
+
+        return $validationResult;
+    }
+
+    /**
+     * Store uploaded file in permanent storage
+     * @param array $field
+     * @param array $file
+     * @param string $submissionId
+     * @return array
+     */
+    private function storeFile($field, $file, $submissionId) {
+        try {
+            $fileInfo = [
+                'original_name' => $file['name'],
+                'mime_type' => $file['type'],
+                'size' => $file['size']
                 'type' => 'form_submission',
                 'form_id' => $this->form['id'],
                 'ip' => $clientIP
@@ -210,6 +230,173 @@ class FormSubmissionHandler {
             'success' => true,
             'data' => $sanitizedData
         ];
+    }
+
+    /**
+     * Process uploaded files for file/photo/signature fields
+     * @param array $postData
+     * @param array $files
+     * @param string $submissionId
+     * @return array
+     */
+    private function processFileUploads($postData, $files, $submissionId) {
+        $processedFiles = [];
+        $errors = [];
+
+        if (empty($this->config['fields'])) {
+            return [
+                'success' => true,
+                'files' => [],
+                'errors' => []
+            ];
+        }
+
+        foreach ($this->config['fields'] as $field) {
+            if (!in_array($field['type'], ['file', 'photo', 'signature'])) {
+                continue;
+            }
+
+            $fieldId = $field['id'];
+
+            // Direct upload via multipart form submission
+            if (isset($files[$fieldId]) && is_array($files[$fieldId]) && !empty($files[$fieldId]['tmp_name'])) {
+                $file = $files[$fieldId];
+
+                if ($file['error'] !== UPLOAD_ERR_OK) {
+                    error_log("Upload error for {$fieldId}: " . $file['error']);
+                    if (!empty($field['required'])) {
+                        $errors[$fieldId] = 'Error uploading ' . $field['label'] . '. Please try again.';
+                    }
+                    continue;
+                }
+
+                $validationResult = $this->validateFileBasic($field, $file);
+                if (!$validationResult['valid']) {
+                    $errors[$fieldId] = $validationResult['error'];
+                    continue;
+                }
+
+                $storeResult = $this->storeFile($field, $file, $submissionId);
+                if ($storeResult['success']) {
+                    $processedFiles[$fieldId] = $storeResult['file_info'];
+                } else {
+                    if (!empty($field['required'])) {
+                        $errors[$fieldId] = 'Failed to save ' . $field['label'] . '. Please try again.';
+                    }
+                }
+
+                continue;
+            }
+
+            // Temp token from pre-uploaded file
+            $tempToken = $postData[$fieldId . '_temp_name']
+                ?? $postData[$fieldId . '_temp']
+                ?? $postData[$fieldId . '_temp_id']
+                ?? null;
+
+            if ($tempToken) {
+                $metadata = [
+                    'original_name' => $postData[$fieldId . '_temp_original'] ?? null,
+                    'mime_type' => $postData[$fieldId . '_temp_type'] ?? null,
+                    'size' => isset($postData[$fieldId . '_temp_size']) ? (int)$postData[$fieldId . '_temp_size'] : null
+                ];
+
+                $moveResult = $this->moveTempFileToPermanent($field, $tempToken, $submissionId, $metadata);
+                if ($moveResult['success']) {
+                    $processedFiles[$fieldId] = $moveResult['file_info'];
+                    continue;
+                }
+
+                $errors[$fieldId] = $moveResult['error'] ?? ('Failed to attach uploaded file for ' . $field['label'] . '.');
+                continue;
+            }
+
+            if (!empty($field['required'])) {
+                $errors[$fieldId] = $field['label'] . ' is required.';
+            }
+        }
+
+        return [
+            'success' => empty($errors),
+            'files' => $processedFiles,
+            'errors' => $errors
+        ];
+    }
+
+    /**
+     * Promote a pre-uploaded temp file into permanent storage
+     * @param array $field
+     * @param string $tempToken
+     * @param string $submissionId
+     * @param array $metadata
+     * @return array
+     */
+    private function moveTempFileToPermanent($field, $tempToken, $submissionId, $metadata = []) {
+        try {
+            $safeToken = basename($tempToken);
+            if ($safeToken === '' || strpos($safeToken, '..') !== false) {
+                return ['success' => false, 'error' => 'Invalid temporary file reference.'];
+            }
+
+            $tempDir = __DIR__ . '/../uploads/temp';
+            $candidatePaths = [];
+
+            $candidatePaths[] = $tempDir . '/' . $safeToken;
+            if (!is_file($candidatePaths[0])) {
+                $matches = glob($tempDir . '/' . $safeToken . '.*');
+                if (!empty($matches)) {
+                    $candidatePaths = array_merge($candidatePaths, $matches);
+                }
+            }
+
+            $tempPath = null;
+            foreach ($candidatePaths as $path) {
+                if (is_file($path)) {
+                    $tempPath = $path;
+                    break;
+                }
+            }
+
+            if (!$tempPath) {
+                return ['success' => false, 'error' => 'Uploaded file could not be located.'];
+            }
+
+            $extension = pathinfo($tempPath, PATHINFO_EXTENSION);
+            $originalName = $metadata['original_name'] ?? basename($tempPath);
+            if ($extension && pathinfo($originalName, PATHINFO_EXTENSION) === '') {
+                $originalName .= '.' . $extension;
+            }
+
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $detectedMime = $finfo ? finfo_file($finfo, $tempPath) : null;
+            if ($finfo) {
+                finfo_close($finfo);
+            }
+
+            $fileInfo = [
+                'name' => $originalName,
+                'tmp_name' => $tempPath,
+                'type' => $metadata['mime_type'] ?: ($detectedMime ?: 'application/octet-stream'),
+                'size' => $metadata['size'] ?: filesize($tempPath),
+                'error' => UPLOAD_ERR_OK
+            ];
+
+            $validationResult = $this->validateFileBasic($field, $fileInfo);
+            if (!$validationResult['valid']) {
+                return ['success' => false, 'error' => $validationResult['error']];
+            }
+
+            $storeResult = $this->storeFile($field, $fileInfo, $submissionId);
+            if ($storeResult['success']) {
+                return $storeResult;
+            }
+
+            return ['success' => false, 'error' => $storeResult['error'] ?? 'Failed to save uploaded file.'];
+
+        } catch (Exception $e) {
+            error_log('FormSubmissionHandler::moveTempFileToPermanent - ' . $e->getMessage());
+            return ['success' => false, 'error' => 'Unexpected error while processing uploaded file.'];
+        }
     }
     
     /**
@@ -556,8 +743,19 @@ class FormSubmissionHandler {
             
             error_log("Attempting to move file from " . $file['tmp_name'] . " to " . $filePath);
             
-            // Move uploaded file
-            if (!move_uploaded_file($file['tmp_name'], $filePath)) {
+            // Move uploaded file (supports both direct uploads and temp files)
+            $moveSucceeded = false;
+            if (is_uploaded_file($file['tmp_name'])) {
+                $moveSucceeded = move_uploaded_file($file['tmp_name'], $filePath);
+            } else {
+                $moveSucceeded = @rename($file['tmp_name'], $filePath);
+                if (!$moveSucceeded && @copy($file['tmp_name'], $filePath)) {
+                    @unlink($file['tmp_name']);
+                    $moveSucceeded = true;
+                }
+            }
+
+            if (!$moveSucceeded) {
                 error_log("Failed to move uploaded file: " . $file['tmp_name'] . " to " . $filePath);
                 return ['success' => false, 'error' => 'Failed to save uploaded file'];
             }
