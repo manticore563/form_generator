@@ -1,0 +1,15 @@
+# Deny all web access to config directory
+Order Deny,Allow
+Deny from all
+
+# Prevent execution of PHP files
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(conf|config|ini|log|bak|backup|old|tmp)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>

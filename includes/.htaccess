@@ -1,0 +1,7 @@
+# Includes directory - contains PHP libraries
+Options -Indexes
+Options -ExecCGI
+
+# Deny access to PHP files in upload directories
+Order Deny,Allow
+Deny from all

@@ -1,0 +1,15 @@
+# Upload directory - files should not be directly executable
+Options -Indexes
+Options -ExecCGI
+
+# Deny access to PHP files in upload directories
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+# Allow only specific file types
+<FilesMatch "\.(jpg|jpeg|png|gif|pdf)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

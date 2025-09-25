@@ -1,0 +1,597 @@
+/**
+ * Public Form Styles
+ * Styles for the public-facing form interface
+ * Requires: responsive-framework.css
+ */
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: var(--spacing-4, 1rem);
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: var(--spacing-10) var(--spacing-6);
+    text-align: center;
+}
+
+.form-header h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-2);
+}
+
+.form-description {
+    font-size: var(--font-size-base);
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.enrollment-form {
+    padding: var(--spacing-10, 2.5rem) var(--spacing-6, 1.5rem);
+    display: grid;
+    gap: var(--spacing-6, 1.5rem);
+    grid-template-columns: 1fr;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.field-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: var(--spacing-2, 8px);
+    font-size: var(--font-size-sm, 14px);
+}
+
+.required {
+    color: #dc3545;
+    margin-left: var(--spacing-1, 4px);
+}
+
+.form-control {
+    width: 100%;
+    padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius-lg, 8px);
+    font-size: var(--font-size-base, 16px);
+    transition: var(--transition-slow, 0.3s ease);
+    background: #fff;
+    min-height: var(--touch-target-min, 44px);
+    color: #333;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+}
+
+.form-control:invalid,
+.form-control.error {
+    border-color: var(--danger-color);
+    background-color: #fff5f5;
+}
+
+.form-control:valid:not(:placeholder-shown),
+.form-control.valid {
+    border-color: var(--success-color);
+    background-color: #f0fff4;
+}
+
+.aadhar-input.valid {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='m2.3 6.73.94-.94 2.94 2.94L8.5 6.4l.94.94L6.5 10.27z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-3) center;
+    background-size: 16px;
+    padding-right: var(--spacing-10);
+}
+
+.has-error .field-label {
+    color: #dc3545;
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+    display: grid;
+    gap: var(--spacing-3);
+    grid-template-columns: 1fr;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius-lg, 8px);
+    transition: var(--transition-slow, 0.3s ease);
+    background: #fff;
+    min-height: var(--touch-target-min, 44px);
+    color: #333;
+}
+
+.radio-option:hover,
+.checkbox-option:hover {
+    border-color: #007cba;
+    background: #f8f9fa;
+}
+
+.radio-option input,
+.checkbox-option input {
+    margin-right: var(--spacing-3);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.radio-label,
+.checkbox-label {
+    font-size: var(--font-size-sm, 14px);
+    cursor: pointer;
+    flex: 1;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* File Upload Styles */
+.file-input,
+.photo-input,
+.signature-input {
+    padding: var(--spacing-4);
+    border: 2px dashed var(--primary-color);
+    background: var(--gray-100);
+    cursor: pointer;
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition-base);
+    min-height: var(--touch-target-min);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.file-input:hover,
+.photo-input:hover,
+.signature-input:hover {
+    border-color: var(--primary-dark);
+    background: var(--gray-200);
+}
+
+/* Photo and Signature Upload Containers */
+.photo-upload-container,
+.signature-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+/* Photo and Signature Preview */
+.photo-preview,
+.signature-preview {
+    padding: var(--spacing-4);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius-lg);
+    background: var(--gray-100);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-2);
+    box-shadow: var(--shadow);
+}
+
+/* Aadhar Input Formatting */
+.aadhar-input {
+    font-family: monospace;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.field-help {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+    display: block;
+    line-height: 1.4;
+}
+
+/* Field Errors */
+.field-error {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.field-error.show {
+    display: block;
+}
+
+/* Form Actions */
+.form-actions {
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #e1e5e9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 124, 186, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    min-width: 200px;
+    position: relative;
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-submit.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error Container */
+.error-container {
+    padding: 60px 30px;
+    text-align: center;
+    color: #666;
+}
+
+.error-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.error-container h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.error-container p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Empty Form */
+.empty-form {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+/* Form Errors */
+.form-errors {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.form-errors h3 {
+    color: #dc3545;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.form-errors ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.form-errors li {
+    color: #dc3545;
+    margin-bottom: 8px;
+}
+
+/* Success Message */
+.success-container {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 64px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.success-container h2 {
+    color: #28a745;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.success-container p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.submission-id {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #007cba;
+    border: 2px solid #e1e5e9;
+}
+
+/* Multi-column layout for larger screens */
+@media (min-width: 769px) {
+    .enrollment-form {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-8) var(--spacing-6);
+    }
+    
+    /* Full width for certain field types */
+    .form-group[data-field-type="radio"],
+    .form-group[data-field-type="checkbox"],
+    .form-group[data-field-type="photo"],
+    .form-group[data-field-type="signature"],
+    .form-group[data-field-type="textarea"],
+    .form-actions {
+        grid-column: 1 / -1;
+    }
+    
+    /* Two-column layout for radio/checkbox options on larger screens */
+    .radio-group,
+    .checkbox-group {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-3) var(--spacing-5);
+    }
+    
+    .preview-image {
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-2);
+    }
+    
+    .form-container {
+        border-radius: var(--border-radius-lg);
+    }
+    
+    .form-header {
+        padding: var(--spacing-8) var(--spacing-4);
+    }
+    
+    .form-header h1 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .enrollment-form {
+        padding: var(--spacing-8) var(--spacing-4);
+        gap: var(--spacing-5);
+    }
+    
+    .form-control {
+        font-size: var(--font-size-base); /* Prevent zoom on iOS */
+        padding: var(--spacing-3);
+    }
+    
+    .radio-group,
+    .checkbox-group {
+        gap: var(--spacing-2);
+    }
+    
+    .radio-option,
+    .checkbox-option {
+        padding: var(--spacing-2) var(--spacing-3);
+    }
+    
+    .radio-option input,
+    .checkbox-option input {
+        width: 22px;
+        height: 22px;
+        margin-right: var(--spacing-3);
+    }
+    
+    .btn {
+        padding: var(--spacing-3) var(--spacing-6);
+        font-size: var(--font-size-base);
+    }
+    
+    .btn-submit {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .file-input,
+    .photo-input,
+    .signature-input {
+        padding: var(--spacing-6) var(--spacing-4);
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-1);
+    }
+    
+    .form-header {
+        padding: var(--spacing-6) var(--spacing-3);
+    }
+    
+    .form-header h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .enrollment-form {
+        padding: var(--spacing-6) var(--spacing-3);
+        gap: var(--spacing-4);
+    }
+    
+    .preview-image {
+        max-width: 150px;
+        max-height: 150px;
+    }
+    
+    .radio-option,
+    .checkbox-option {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-2);
+    }
+    
+    .radio-option input,
+    .checkbox-option input {
+        margin-right: 0;
+        margin-bottom: var(--spacing-1);
+    }
+    
+    .field-label {
+        font-size: var(--font-size-base);
+    }
+    
+    .form-control {
+        padding: var(--spacing-4);
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .radio-option:hover,
+    .checkbox-option:hover,
+    .file-input:hover,
+    .photo-input:hover,
+    .signature-input:hover {
+        background: var(--gray-100);
+        border-color: var(--gray-300);
+    }
+    
+    .radio-option:active,
+    .checkbox-option:active {
+        background: var(--primary-light);
+        border-color: var(--primary-color);
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .form-container {
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .form-header {
+        background: white;
+        color: black;
+    }
+    
+    .btn {
+        display: none;
+    }
+    
+    .form-actions {
+        display: none;
+    }
+}

@@ -1,0 +1,129 @@
+[18-Sep-2025 19:27:58 Asia/Kolkata] SECURITY [ERROR] csrf_validation_failed: {"form_id":"68cc078a695912.97922710","ip":"2401:4900:8854:1851:3139:a014:f9af:9fa7"}
+[18-Sep-2025 19:29:08 Asia/Kolkata] SECURITY [ERROR] csrf_validation_failed: {"form_id":"68cc078a695912.97922710","ip":"2401:4900:8854:1851:3139:a014:f9af:9fa7"}
+[18-Sep-2025 19:41:16 Asia/Kolkata] CSRF validation failed for form: 68cc078a695912.97922710
+[18-Sep-2025 19:41:16 Asia/Kolkata] SECURITY [ERROR] file_quarantined: {"original_path":"\/dev\/shm\/phpXIycIC","quarantine_path":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/includes\/..\/quarantine\/2025-09-18_19-41-16_phpXIycIC","reason":"Malicious content detected: PHP code detected in file, Embedded Windows executable detected"}
+[18-Sep-2025 19:41:16 Asia/Kolkata] SECURITY [ERROR] malicious_file_upload_blocked: {"field_id":"field_1758201632729_ijr9kaia3","filename":"img.jpg","threats":["PHP code detected in file","Embedded Windows executable detected"],"form_id":"68cc078a695912.97922710"}
+[18-Sep-2025 19:43:45 Asia/Kolkata] CSRF validation failed for form: 68cc1346577430.92017196
+[18-Sep-2025 19:43:45 Asia/Kolkata] SECURITY [ERROR] file_quarantined: {"original_path":"\/dev\/shm\/phps3ATho","quarantine_path":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/includes\/..\/quarantine\/2025-09-18_19-43-45_phps3ATho","reason":"Malicious content detected: PHP code detected in file, Embedded Windows executable detected"}
+[18-Sep-2025 19:43:45 Asia/Kolkata] SECURITY [ERROR] malicious_file_upload_blocked: {"field_id":"field_1758204715131_vnyxlsa80","filename":"img.jpg","threats":["PHP code detected in file","Embedded Windows executable detected"],"form_id":"68cc1346577430.92017196"}
+[18-Sep-2025 19:50:24 Asia/Kolkata] CSRF validation failed for form: 68cc1346577430.92017196
+[18-Sep-2025 19:50:24 Asia/Kolkata] SECURITY [ERROR] critical_file_upload_blocked: {"field_id":"field_1758204715131_vnyxlsa80","filename":"img.jpg","critical_threats":["PHP code detected in file","Embedded Windows executable detected"],"all_threats":["PHP code detected in file","Embedded Windows executable detected"],"form_id":"68cc1346577430.92017196"}
+[18-Sep-2025 19:51:16 Asia/Kolkata] CSRF validation failed for form: 68cc1346577430.92017196
+[18-Sep-2025 19:51:16 Asia/Kolkata] SECURITY [ERROR] critical_file_upload_blocked: {"field_id":"field_1758204715131_vnyxlsa80","filename":"img.jpg","critical_threats":["PHP code detected in file","Embedded Windows executable detected"],"all_threats":["PHP code detected in file","Embedded Windows executable detected"],"form_id":"68cc1346577430.92017196"}
+[18-Sep-2025 19:53:45 Asia/Kolkata] CSRF validation failed for form: 68cc1346577430.92017196
+[18-Sep-2025 19:53:45 Asia/Kolkata] Failed to store file for field field_1758204715131_vnyxlsa80
+[18-Sep-2025 19:53:45 Asia/Kolkata] Failed to store file for field field_1758204712055_unsmskx0g
+[18-Sep-2025 20:02:12 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:02:24 Asia/Kolkata] Starting CSV export for form: 68cc1346577430.92017196
+[18-Sep-2025 20:02:24 Asia/Kolkata] Form found: test form
+[18-Sep-2025 20:02:24 Asia/Kolkata] Found 1 submissions
+[18-Sep-2025 20:02:24 Asia/Kolkata] CSV export completed successfully: {"export_id":"exp_1758205944_68cc17f88763b8.54809710","filename":"submissions_test_form_2025-09-18_20-02-24.csv","filepath":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/admin\/..\/uploads\/exports\/submissions_test_form_2025-09-18_20-02-24.csv","download_url":"APP_URL\/admin\/export-download.php?id=exp_1758205944_68cc17f88763b8.54809710","record_count":1,"created_at":"2025-09-18 20:02:24"}
+[18-Sep-2025 20:02:45 Asia/Kolkata] Starting CSV export for form: 68cc1346577430.92017196
+[18-Sep-2025 20:02:45 Asia/Kolkata] Form found: test form
+[18-Sep-2025 20:02:45 Asia/Kolkata] Found 1 submissions
+[18-Sep-2025 20:02:45 Asia/Kolkata] CSV export completed successfully: {"export_id":"exp_1758205965_68cc180d3522f6.34396312","filename":"submissions_test_form_2025-09-18_20-02-45.csv","filepath":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/admin\/..\/uploads\/exports\/submissions_test_form_2025-09-18_20-02-45.csv","download_url":"APP_URL\/admin\/export-download.php?id=exp_1758205965_68cc180d3522f6.34396312","record_count":1,"created_at":"2025-09-18 20:02:45"}
+[18-Sep-2025 20:03:16 Asia/Kolkata] Starting CSV export for form: 68cc1346577430.92017196
+[18-Sep-2025 20:03:16 Asia/Kolkata] Form found: test form
+[18-Sep-2025 20:03:16 Asia/Kolkata] Found 1 submissions
+[18-Sep-2025 20:03:16 Asia/Kolkata] CSV export completed successfully: {"export_id":"exp_1758205996_68cc182c8c53d2.19581416","filename":"submissions_test_form_2025-09-18_20-03-16.csv","filepath":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/admin\/..\/uploads\/exports\/submissions_test_form_2025-09-18_20-03-16.csv","download_url":"APP_URL\/admin\/export-download.php?id=exp_1758205996_68cc182c8c53d2.19581416","record_count":1,"created_at":"2025-09-18 20:03:16"}
+[18-Sep-2025 20:06:01 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:06:09 Asia/Kolkata] Starting CSV export for form: 68cc1346577430.92017196
+[18-Sep-2025 20:06:09 Asia/Kolkata] Form found: test form
+[18-Sep-2025 20:06:09 Asia/Kolkata] Found 1 submissions
+[18-Sep-2025 20:06:09 Asia/Kolkata] CSV export completed successfully: {"export_id":"exp_1758206169_68cc18d91c1889.96165768","filename":"submissions_test_form_2025-09-18_20-06-09.csv","filepath":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/admin\/..\/uploads\/exports\/submissions_test_form_2025-09-18_20-06-09.csv","download_url":"https:\/\/form.examorbit.info\/admin\/export-download.php?id=exp_1758206169_68cc18d91c1889.96165768","record_count":1,"created_at":"2025-09-18 20:06:09"}
+[18-Sep-2025 20:06:21 Asia/Kolkata] Starting CSV export for form: 68cc1346577430.92017196
+[18-Sep-2025 20:06:21 Asia/Kolkata] Form found: test form
+[18-Sep-2025 20:06:21 Asia/Kolkata] Found 1 submissions
+[18-Sep-2025 20:06:21 Asia/Kolkata] CSV export completed successfully: {"export_id":"exp_1758206181_68cc18e5d350a7.38452093","filename":"submissions_test_form_2025-09-18_20-06-21.csv","filepath":"\/home\/sites\/29b\/0\/00953da1b9\/public_html\/form\/admin\/..\/uploads\/exports\/submissions_test_form_2025-09-18_20-06-21.csv","download_url":"https:\/\/form.examorbit.info\/admin\/export-download.php?id=exp_1758206181_68cc18e5d350a7.38452093","record_count":1,"created_at":"2025-09-18 20:06:21"}
+[18-Sep-2025 20:10:16 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:10:19 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:14:40 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:15:14 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:38:56 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:39:00 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:39:35 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:39:56 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:47:00 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:47:04 Asia/Kolkata] Submission data for ID SUB_20250918_68CC15F1A06CC: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9123"}
+[18-Sep-2025 20:50:05 Asia/Kolkata] CSRF validation failed for form: 68cc1346577430.92017196
+[18-Sep-2025 20:50:05 Asia/Kolkata] Failed to store file for field field_1758204715131_vnyxlsa80
+[18-Sep-2025 20:50:05 Asia/Kolkata] Failed to store file for field field_1758204712055_unsmskx0g
+[18-Sep-2025 20:50:48 Asia/Kolkata] Submission data for ID SUB_20250918_68CC23253965F: {"field_1758204703929_jc38403xz":"lalit","field_1758204705965_8e4gzqo2h":"lalu@gmail.com","field_1758204709511_chm6ssk9x":"1234 5632 1564"}
+[18-Sep-2025 20:51:45 Asia/Kolkata] Submission data for ID SUB_20250918_68CC23253965F: {"field_1758204703929_jc38403xz":"lalit","field_1758204705965_8e4gzqo2h":"lalu@gmail.com","field_1758204709511_chm6ssk9x":"1234 5632 1564"}
+[18-Sep-2025 21:06:10 Asia/Kolkata] No data found for field: field_1758204715131_vnyxlsa80/field_1758204715131_vnyxlsa80. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 21:06:10 Asia/Kolkata] No data found for field: field_1758204712055_unsmskx0g/field_1758204712055_unsmskx0g. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 21:06:18 Asia/Kolkata] Submission data for ID SUB_20250918_68CC23253965F: {"field_1758204703929_jc38403xz":"lalit","field_1758204705965_8e4gzqo2h":"lalu@gmail.com","field_1758204709511_chm6ssk9x":"1234 5632 1564"}
+[18-Sep-2025 21:07:02 Asia/Kolkata] CSRF validation temporarily disabled for testing
+[18-Sep-2025 21:07:02 Asia/Kolkata] Processing file uploads for submission: SUB_20250918_68CC271EC8DC7
+[18-Sep-2025 21:07:02 Asia/Kolkata] Files received: ["field_1758204715131_vnyxlsa80","field_1758204712055_unsmskx0g"]
+[18-Sep-2025 21:07:02 Asia/Kolkata] Found file field: field_1758204715131_vnyxlsa80 (signature)
+[18-Sep-2025 21:07:02 Asia/Kolkata] Found file field: field_1758204712055_unsmskx0g (photo)
+[18-Sep-2025 21:07:02 Asia/Kolkata] Processing field: field_1758204715131_vnyxlsa80
+[18-Sep-2025 21:07:02 Asia/Kolkata] File data for field_1758204715131_vnyxlsa80: {"name":"img.jpg","size":104899,"error":0,"tmp_name":"\/dev\/shm\/phpjWcvwE"}
+[18-Sep-2025 21:07:02 Asia/Kolkata] Failed to insert file record into database
+[18-Sep-2025 21:07:02 Asia/Kolkata] Failed to store file for field field_1758204715131_vnyxlsa80
+[18-Sep-2025 21:07:02 Asia/Kolkata] Processing field: field_1758204712055_unsmskx0g
+[18-Sep-2025 21:07:02 Asia/Kolkata] File data for field_1758204712055_unsmskx0g: {"name":"sign.jpg","size":44478,"error":0,"tmp_name":"\/dev\/shm\/phpsdsDH1"}
+[18-Sep-2025 21:07:02 Asia/Kolkata] Failed to insert file record into database
+[18-Sep-2025 21:07:02 Asia/Kolkata] Failed to store file for field field_1758204712055_unsmskx0g
+[18-Sep-2025 21:07:02 Asia/Kolkata] File processing completed successfully. Processed files: []
+[18-Sep-2025 21:07:15 Asia/Kolkata] Submission data for ID SUB_20250918_68CC271EC8DC7: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalu@gmail.com","field_1758204709511_chm6ssk9x":"1234 5645 6231"}
+[18-Sep-2025 21:07:21 Asia/Kolkata] No data found for field: field_1758204715131_vnyxlsa80/field_1758204715131_vnyxlsa80. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 21:07:21 Asia/Kolkata] No data found for field: field_1758204712055_unsmskx0g/field_1758204712055_unsmskx0g. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 22:03:50 Asia/Kolkata] No data found for field: field_1758204715131_vnyxlsa80/field_1758204715131_vnyxlsa80. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 22:03:50 Asia/Kolkata] No data found for field: field_1758204712055_unsmskx0g/field_1758204712055_unsmskx0g. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 22:03:56 Asia/Kolkata] Submission data for ID SUB_20250918_68CC271EC8DC7: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalu@gmail.com","field_1758204709511_chm6ssk9x":"1234 5645 6231"}
+[18-Sep-2025 22:04:48 Asia/Kolkata] FormSubmissionHandler::processSubmission - Starting
+[18-Sep-2025 22:04:48 Asia/Kolkata] POST data keys: csrf_token, field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 22:04:48 Asia/Kolkata] FILES data: {"field_1758204715131_vnyxlsa80":{"name":"img.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpjrmz5E","error":0,"size":104899},"field_1758204712055_unsmskx0g":{"name":"sign.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpKcWJRZ","error":0,"size":44478}}
+[18-Sep-2025 22:04:48 Asia/Kolkata] Generated submission ID: SUB_20250918_68CC34A82003A
+[18-Sep-2025 22:04:48 Asia/Kolkata] CSRF validation temporarily disabled for testing
+[18-Sep-2025 22:04:48 Asia/Kolkata] Processing file uploads for submission: SUB_20250918_68CC34A82003A
+[18-Sep-2025 22:04:48 Asia/Kolkata] Files received: {"field_1758204715131_vnyxlsa80":{"name":"img.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpjrmz5E","error":0,"size":104899},"field_1758204712055_unsmskx0g":{"name":"sign.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpKcWJRZ","error":0,"size":44478}}
+[18-Sep-2025 22:04:48 Asia/Kolkata] Found file field: field_1758204715131_vnyxlsa80 (signature)
+[18-Sep-2025 22:04:48 Asia/Kolkata] Found file field: field_1758204712055_unsmskx0g (photo)
+[18-Sep-2025 22:04:48 Asia/Kolkata] Processing field: field_1758204715131_vnyxlsa80
+[18-Sep-2025 22:04:48 Asia/Kolkata] File data for field_1758204715131_vnyxlsa80: {"name":"img.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpjrmz5E","error":0,"size":104899}
+[18-Sep-2025 22:04:48 Asia/Kolkata] Attempting to move file from /dev/shm/phpjrmz5E to /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC34A82003A_field_1758204715131_vnyxlsa80_1758213288.jpg
+[18-Sep-2025 22:04:48 Asia/Kolkata] File successfully moved to: /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC34A82003A_field_1758204715131_vnyxlsa80_1758213288.jpg
+[18-Sep-2025 22:04:48 Asia/Kolkata] Failed to insert file record into database
+[18-Sep-2025 22:04:48 Asia/Kolkata] Failed to store file for field field_1758204715131_vnyxlsa80
+[18-Sep-2025 22:04:48 Asia/Kolkata] Processing field: field_1758204712055_unsmskx0g
+[18-Sep-2025 22:04:48 Asia/Kolkata] File data for field_1758204712055_unsmskx0g: {"name":"sign.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpKcWJRZ","error":0,"size":44478}
+[18-Sep-2025 22:04:48 Asia/Kolkata] Attempting to move file from /dev/shm/phpKcWJRZ to /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC34A82003A_field_1758204712055_unsmskx0g_1758213288.jpg
+[18-Sep-2025 22:04:48 Asia/Kolkata] File successfully moved to: /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC34A82003A_field_1758204712055_unsmskx0g_1758213288.jpg
+[18-Sep-2025 22:04:48 Asia/Kolkata] Failed to insert file record into database
+[18-Sep-2025 22:04:48 Asia/Kolkata] Failed to store file for field field_1758204712055_unsmskx0g
+[18-Sep-2025 22:04:48 Asia/Kolkata] File processing completed successfully. Processed files: []
+[18-Sep-2025 22:05:00 Asia/Kolkata] Submission data for ID SUB_20250918_68CC34A82003A: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9654"}
+[18-Sep-2025 22:05:04 Asia/Kolkata] No data found for field: field_1758204715131_vnyxlsa80/field_1758204715131_vnyxlsa80. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 22:05:04 Asia/Kolkata] No data found for field: field_1758204712055_unsmskx0g/field_1758204712055_unsmskx0g. Available keys: field_1758204703929_jc38403xz, field_1758204705965_8e4gzqo2h, field_1758204709511_chm6ssk9x
+[18-Sep-2025 22:07:54 Asia/Kolkata] Submission data for ID SUB_20250918_68CC34A82003A: {"field_1758204703929_jc38403xz":"manu","field_1758204705965_8e4gzqo2h":"lalit@gmail.com","field_1758204709511_chm6ssk9x":"1234 5678 9654"}
+[18-Sep-2025 22:09:51 Asia/Kolkata] FormSubmissionHandler::processSubmission - Starting
+[18-Sep-2025 22:09:51 Asia/Kolkata] POST data keys: csrf_token
+[18-Sep-2025 22:09:51 Asia/Kolkata] FILES data: {"field_1758213495627_1hvwhr5rs":{"name":"img.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpy6PwIh","error":0,"size":104899},"field_1758213507823_wka2riyna":{"name":"sign.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpD5oyCi","error":0,"size":44478}}
+[18-Sep-2025 22:09:51 Asia/Kolkata] Generated submission ID: SUB_20250918_68CC35D76B0B0
+[18-Sep-2025 22:09:51 Asia/Kolkata] CSRF validation temporarily disabled for testing
+[18-Sep-2025 22:09:51 Asia/Kolkata] Processing file uploads for submission: SUB_20250918_68CC35D76B0B0
+[18-Sep-2025 22:09:51 Asia/Kolkata] Files received: {"field_1758213495627_1hvwhr5rs":{"name":"img.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpy6PwIh","error":0,"size":104899},"field_1758213507823_wka2riyna":{"name":"sign.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpD5oyCi","error":0,"size":44478}}
+[18-Sep-2025 22:09:51 Asia/Kolkata] Found file field: field_1758213495627_1hvwhr5rs (photo)
+[18-Sep-2025 22:09:51 Asia/Kolkata] Found file field: field_1758213507823_wka2riyna (signature)
+[18-Sep-2025 22:09:51 Asia/Kolkata] Processing field: field_1758213495627_1hvwhr5rs
+[18-Sep-2025 22:09:51 Asia/Kolkata] File data for field_1758213495627_1hvwhr5rs: {"name":"img.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpy6PwIh","error":0,"size":104899}
+[18-Sep-2025 22:09:51 Asia/Kolkata] Attempting to move file from /dev/shm/phpy6PwIh to /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC35D76B0B0_field_1758213495627_1hvwhr5rs_1758213591.jpg
+[18-Sep-2025 22:09:51 Asia/Kolkata] File successfully moved to: /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC35D76B0B0_field_1758213495627_1hvwhr5rs_1758213591.jpg
+[18-Sep-2025 22:09:51 Asia/Kolkata] Failed to insert file record into database
+[18-Sep-2025 22:09:51 Asia/Kolkata] Failed to store file for field field_1758213495627_1hvwhr5rs
+[18-Sep-2025 22:09:51 Asia/Kolkata] Processing field: field_1758213507823_wka2riyna
+[18-Sep-2025 22:09:51 Asia/Kolkata] File data for field_1758213507823_wka2riyna: {"name":"sign.jpg","type":"image\/jpeg","tmp_name":"\/dev\/shm\/phpD5oyCi","error":0,"size":44478}
+[18-Sep-2025 22:09:51 Asia/Kolkata] Attempting to move file from /dev/shm/phpD5oyCi to /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC35D76B0B0_field_1758213507823_wka2riyna_1758213591.jpg
+[18-Sep-2025 22:09:51 Asia/Kolkata] File successfully moved to: /home/sites/29b/0/00953da1b9/public_html/form/forms/../uploads/files/SUB_20250918_68CC35D76B0B0_field_1758213507823_wka2riyna_1758213591.jpg
+[18-Sep-2025 22:09:51 Asia/Kolkata] Failed to insert file record into database
+[18-Sep-2025 22:09:51 Asia/Kolkata] Failed to store file for field field_1758213507823_wka2riyna
+[18-Sep-2025 22:09:51 Asia/Kolkata] File processing completed successfully. Processed files: []
+[18-Sep-2025 22:10:16 Asia/Kolkata] Submission data for ID SUB_20250918_68CC35D76B0B0: []
+[18-Sep-2025 22:10:25 Asia/Kolkata] No data found for field: field_1758213495627_1hvwhr5rs/field_1758213495627_1hvwhr5rs. Available keys: 
+[18-Sep-2025 22:10:25 Asia/Kolkata] No data found for field: field_1758213507823_wka2riyna/field_1758213507823_wka2riyna. Available keys: 
+[19-Sep-2025 09:03:20 Asia/Kolkata] Submission data for ID SUB_20250918_68CC35D76B0B0: []
+[19-Sep-2025 09:03:26 Asia/Kolkata] No data found for field: field_1758213495627_1hvwhr5rs/field_1758213495627_1hvwhr5rs. Available keys: 
+[19-Sep-2025 09:03:26 Asia/Kolkata] No data found for field: field_1758213507823_wka2riyna/field_1758213507823_wka2riyna. Available keys: 

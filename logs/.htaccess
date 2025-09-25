@@ -1,0 +1,7 @@
+# Log directory - contains application logs
+Options -Indexes
+Options -ExecCGI
+
+# Deny access to PHP files in upload directories
+Order Deny,Allow
+Deny from all
