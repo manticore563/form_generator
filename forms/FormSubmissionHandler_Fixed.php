@@ -13,7 +13,7 @@ require_once __DIR__ . '/../includes/SecurityUtils.php';
 require_once __DIR__ . '/../includes/FileSecurityManager.php';
 require_once __DIR__ . '/../includes/AccessLogger.php';
 
-class FormSubmissionHandler_Fixed {
+class FormSubmissionHandler {
     private $db;
     private $form;
     private $config;
@@ -33,7 +33,7 @@ class FormSubmissionHandler_Fixed {
     public function processSubmission($postData, $files) {
         try {
             // Debug logging
-            error_log("FormSubmissionHandler_Fixed::processSubmission - Starting");
+            error_log("FormSubmissionHandler::processSubmission - Starting");
             error_log("POST data keys: " . implode(', ', array_keys($postData)));
             error_log("FILES data: " . json_encode($files));
             
@@ -81,7 +81,7 @@ class FormSubmissionHandler_Fixed {
             ];
             
         } catch (Exception $e) {
-            error_log("FormSubmissionHandler_Fixed::processSubmission - Exception: " . $e->getMessage());
+            error_log("FormSubmissionHandler::processSubmission - Exception: " . $e->getMessage());
             error_log("Stack trace: " . $e->getTraceAsString());
             return [
                 'success' => false,
